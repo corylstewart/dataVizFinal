@@ -26,22 +26,37 @@
     </style>
 
     <script type="text/javascript">  
-        function draw(geo_data) {
+
+        function draw() {
             "use strict";
+            var stock_graph_area = $("#stock_graph_area");
+
+            var margin = 75,
+                width = stock_graph_area.width() - margin,
+                height = width/2.5;
+
+            var svg = d3.select("#stock_graph_area")
+                .append("svg")
+                .attr("width", width + margin)
+                .attr("height", height + margin)
+                .append('g')
+                .attr('class', 'map')
+                .attr('id', 'stock_svg');
+        }
+
+        function getStockInformation() {
+            var stock_symbol = $('#stockNameInput').val().toLowerCase();
+            console.log(stock_symbol);
+            var stock_graph_area = $('#stock_graph_area');
+            stock_graph_area.append('hi</br>');
         }
  
     </script>
 </head>
 <body>
-    <script type="text/javascript">
-
-        function getStockInformation() {
-            var text_area = $('#text_area');
-            text_area.append('hi</br>');
-        }
-
-    </script>
     <div class="container-fluid">
+
+        <!-- This code handles the creation of the input area -->
         <form class="form-inline">
             <div class="form-group">
                 <label class="sr-only" for="stockInputName">Stock Symbol</label>
@@ -52,8 +67,17 @@
                 <button type="button" class="btn btn-md btn-submit" id="stockNameSubmitBtn" onclick="getStockInformation()">Default</button>
             </div>
         </form>
-        <div class="row" id="text_area"></div>
+
+        <!-- This code handles the stock graph area -->
+        <div class="row">
+            <div class ="col-md-12" id="stock_graph_area"></div>
+        </div>
     </div>
 
+    
+    <script type="text/javascript">
+        draw();
+
+    </script>
 </body>
 </html>
