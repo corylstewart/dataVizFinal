@@ -3,9 +3,25 @@
 <head>
     <meta charset="utf-8">
     <title>DataVizProject</title>
-    <script src="jquery-1.11.1.min.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script> 
+
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">    
+    <script src="js/bootstrap.min.js"></script>
+
     <style>
+        #stockNameInput {
+            max-width: 200px;
+        }
+
+        #stockNameSubmitBtn {
+        }
 
     </style>
 
@@ -17,8 +33,27 @@
     </script>
 </head>
 <body>
-  <script type="text/javascript">
+    <script type="text/javascript">
 
-  </script>
+        function getStockInformation() {
+            var text_area = $('#text_area');
+            text_area.append('hi</br>');
+        }
+
+    </script>
+    <div class="container-fluid">
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="stockInputName">Stock Symbol</label>
+                <input type="text" class="form-control" id="stockNameInput" placeholder="Enter Stock Symbol">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="stockNameSubmitBtn">Stock Submit Button</label>
+                <button type="button" class="btn btn-md btn-submit" id="stockNameSubmitBtn" onclick="getStockInformation()">Default</button>
+            </div>
+        </form>
+        <div class="row" id="text_area"></div>
+    </div>
+
 </body>
 </html>
